@@ -15,6 +15,7 @@ topic2 = Menu(menubar, tearoff=0)
 topic2.add_command(label='Shift cipher', command=Topic2.shift_cipher_page)
 topic2.add_command(label='Mono-alphabet cipher',
                    command=Topic2.mono_alphabet_cipher_page)
+topic2.add_command(label='Rail fence technique', command=Topic2.rail_fence_cipher_page)
 topic2.add_command(label='Simple columnar transposition technique')
 topic2.add_command(label='Vernam cipher')
 

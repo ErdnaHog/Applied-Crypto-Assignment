@@ -39,7 +39,7 @@ class Topic3:
         plaintext_frame = Frame(mainframe)
         plaintext_frame.grid(row=1, column=0, rowspan=4)
         Label(plaintext_frame, text="Plaintext:").grid(row=0, column=0, padx=10, pady=10)        
-        plaintext_input = Text(plaintext_frame, width=30, height=10)
+        plaintext_input = Text(plaintext_frame, width=20, height=10)
         plaintext_input.grid(row=1, column=0, padx=10, pady=10)
     # ?
     # ? Key Frame

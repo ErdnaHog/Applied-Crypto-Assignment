@@ -1,4 +1,4 @@
-from tkinter import *
+from tkinter import Label, Text, filedialog, Button, OptionMenu, StringVar, Frame, Entry
 from subpages import clear_screen
 from main import mainframe
 from cipher.shift_cipher import encrypt, decrypt
@@ -7,26 +7,42 @@ from cipher.shift_cipher import encrypt, decrypt
 class Shift_cipher:
     def shift_cipher_page():
         clear_screen(mainframe)
+    # ? Title
         Label(mainframe, text="Shift Cipher").grid(
-            row=0, column=1, columnspan=2)
-        Label(mainframe, text="Plaintext:").grid(
-            row=1, column=0, padx=10, pady=10)
-        Label(mainframe, text="Ciphertext:").grid(
-            row=1, column=3, padx=10, pady=10)
-        Label(mainframe, text="Key:").grid(row=2, column=1, padx=10, pady=10)
-        plaintext_input = Text(mainframe, width=20, height=10)
-        plaintext_input.grid(row=2, column=0, padx=10, pady=10)
-        ciphertext_input = Text(mainframe, width=20, height=10)
-        ciphertext_input.grid(row=2, column=3, padx=10, pady=10)
-        keytext_input = Entry(mainframe, width=3)
-        keytext_input.grid(row=2, column=2, padx=10, pady=10)
-        Button(mainframe, text="Encrypt", command=lambda: Shift_cipher.encryption_shift(keytext_input.get(
-        ), plaintext_input.get("1.0", "end"), ciphertext_input)).grid(row=1, column=1, padx=10, pady=10)
-        Button(mainframe, text="Decrypt", command=lambda: Shift_cipher.decryption_shift(keytext_input.get(
+            row=0, column=0, columnspan=3)
+    # ?
+    # ? Plaintext Frame
+        plaintext_frame = Frame(mainframe)
+        plaintext_frame.grid(row=1, column=0)
+        Label(plaintext_frame, text="Plaintext:").grid(
+            row=0, column=0, padx=10, pady=10)
+        plaintext_input = Text(plaintext_frame, width=20, height=10)
+        plaintext_input.grid(row=1, column=0, padx=10, pady=10)
+    # ? Ciphertext Frame
+        ciphertext_frame = Frame(mainframe)
+        ciphertext_frame.grid(row=1, column=2)
+        Label(ciphertext_frame, text="Ciphertext:").grid(
+            row=0, column=0, padx=10, pady=10)
+        ciphertext_input = Text(ciphertext_frame, width=20, height=10)
+        ciphertext_input.grid(row=1, column=0, padx=10, pady=10)        
+    # ? Key Frame
+        key_frame = Frame(mainframe)
+        key_frame.grid(row=1, column=1)
+        Label(key_frame, text="Key:").grid(row=0, column=0, padx=10, pady=10)
+        keytext_input = Entry(key_frame, width=3)
+        keytext_input.grid(row=0, column=1, padx=10, pady=10)
+    # ?
+    # ? Button Frame
+        button_frame = Frame(mainframe)
+        button_frame.grid(row=2, column=1)
+        Button(button_frame, text="Encrypt", command=lambda: Shift_cipher.encryption_shift(keytext_input.get(
+        ), plaintext_input.get("1.0", "end"), ciphertext_input)).grid(row=0, column=0, padx=10, pady=10)
+        Button(button_frame, text="Decrypt", command=lambda: Shift_cipher.decryption_shift(keytext_input.get(
         ), ciphertext_input.get("1.0", "end"), plaintext_input)).grid(
-            row=1, column=2, padx=10, pady=10)
-        Button(mainframe, text="Clear", command=lambda: Shift_cipher.clear_inputs(keytext_input, plaintext_input, ciphertext_input)).grid(
-            row=5, column=1, padx=10, pady=10, columnspan=2)
+            row=0, column=1, padx=10, pady=10)
+        Button(button_frame, text="Clear", command=lambda: Shift_cipher.clear_inputs(keytext_input, plaintext_input, ciphertext_input)).grid(
+            row=1, column=0, padx=10, pady=10, columnspan=2)
+    # ?
 
     def encryption_shift(key, plaintext, ciphertext_input):
         valid = True
