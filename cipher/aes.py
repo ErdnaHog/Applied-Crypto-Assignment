@@ -6,22 +6,18 @@ from Crypto.Util.Padding import pad, unpad
 def get_random_key(keysize):
     return get_random_bytes(keysize)
 
-# AES encrypt using CBC and IV, with default padding (PKCS7)
-
 
 def encrypt(key, plaintext_utf8, ciphertext_file, mode):
+    file_out = open(ciphertext_file, "wb")
     if mode == "CBC":
-        cipher = AES.new(key, AES.MODE_CBC)  # Q6
-        ciphertext = cipher.encrypt(pad(plaintext_utf8, AES.block_size))
-        # write iv and ciphertext to file
-        file_out = open(ciphertext_file, "wb")
+        cipher = AES.new(key, AES.MODE_CBC) 
+        ciphertext = cipher.encrypt(pad(plaintext_utf8, AES.block_size))        
         [file_out.write(x) for x in (cipher.iv, ciphertext)]
         file_out.close()
 
     elif mode == "ECB":
         cipher = AES.new(key, AES.MODE_ECB)
-        ciphertext = cipher.encrypt(pad(plaintext_utf8, AES.block_size))
-        file_out = open(ciphertext_file, "wb")
+        ciphertext = cipher.encrypt(pad(plaintext_utf8, AES.block_size))        
         file_out.write(ciphertext)
         file_out.close()
 
@@ -31,8 +27,7 @@ def encrypt(key, plaintext_utf8, ciphertext_file, mode):
         else:
             AES_MODE = AES.MODE_OFB
         cipher = AES.new(key, AES_MODE)
-        ciphertext = cipher.encrypt(plaintext_utf8)
-        file_out = open(ciphertext_file, "wb")
+        ciphertext = cipher.encrypt(plaintext_utf8)        
         [file_out.write(x) for x in (cipher.iv, ciphertext)]
         file_out.close()
 
