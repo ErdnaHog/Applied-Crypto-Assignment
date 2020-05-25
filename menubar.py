@@ -15,9 +15,12 @@ topic2 = Menu(menubar, tearoff=0)
 topic2.add_command(label='Shift cipher', command=Topic2.shift_cipher_page)
 topic2.add_command(label='Mono-alphabet cipher',
                    command=Topic2.mono_alphabet_cipher_page)
-topic2.add_command(label='Rail fence technique', command=Topic2.rail_fence_cipher_page)
-topic2.add_command(label='Simple columnar transposition technique')
-topic2.add_command(label='Vernam cipher')
+topic2.add_command(label='Rail fence technique',
+                   command=Topic2.rail_fence_cipher_page)
+topic2.add_command(label='Simple columnar transposition technique',
+                   command=Topic2.simple_columnar_transposition_page)
+topic2.add_command(label='Vernam cipher', command=Topic2.vernam_cipher_page)
+#topic2.add_command(label='Diffie-Hellman Key Exchange', command=Topic2.diffie_hellman_page)
 
 menubar.add_cascade(label='Cryptography Concepts and Technqiues', menu=topic2)
 
