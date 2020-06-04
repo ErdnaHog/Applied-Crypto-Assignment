@@ -54,13 +54,16 @@ def encrypt(key, plaintext):
     for i in range(len(plaintext)):
         ptLetter = plaintext[i]
         keyLetter = key[i]
-        # Performing vernam encryption step
-        sum = mappingsDict[ptLetter] + mappingsDict[keyLetter]
-        # Subtracting 26 if sum overflows above values
-        if sum >= 26:
-            sum -= 26
-        # Adding to ciphertext
-        ciphertext += chr(sum + 65)
+        if ptLetter in alphabets:
+            # Performing vernam encryption step
+            sum = mappingsDict[ptLetter] + mappingsDict[keyLetter]
+            # Subtracting 26 if sum overflows above values
+            if sum >= 26:
+                sum -= 26
+            # Adding to ciphertext
+            ciphertext += chr(sum + 65)
+        else:
+            ciphertext += ptLetter
 
     # Returning ciphertext
     return ciphertext
@@ -81,13 +84,16 @@ def decrypt(key, ciphertext):
     for i in range(len(ciphertext)):
         ctLetter = ciphertext[i]
         keyLetter = key[i]
-        # Performing vernam decryption step
-        diff = mappingsDict[ctLetter] - mappingsDict[keyLetter]
-        # Adding 26 if diff underflows above values
-        if diff < 0:
-            diff += 26
-        # Adding to plaintext
-        plaintext += chr(diff + 65)
+        if ctLetter in alphabets:
+            # Performing vernam decryption step
+            diff = mappingsDict[ctLetter] - mappingsDict[keyLetter]
+            # Adding 26 if diff underflows above values
+            if diff < 0:
+                diff += 26
+            # Adding to plaintext
+            plaintext += chr(diff + 65)
+        else:
+            plaintext += ctLetter
 
     # Returning plaintext
     return plaintext

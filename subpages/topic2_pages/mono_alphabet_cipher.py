@@ -131,7 +131,7 @@ class Mono_alphabet_cipher:
     # ? Validate Key
         if sorted_key != "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
             # ? Some characters are missing or duplicated
-            Key_error.config(text="Key has missing or duplicated letters.")
+            Key_error.config(text="Key must have all 26 unique letters.")
             valid = False
         else:
             Key_error.config(text="")
@@ -162,7 +162,7 @@ class Mono_alphabet_cipher:
     # ? Validate Key
         if sorted_key != "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
             # ? Some characters are missing or duplicated
-            Key_error.config(text="Key has missing or duplicated letters.")
+            Key_error.config(text="Key must have all 26 unique letters.")
             valid = False
     # ?
     # ? Validate Ciphertext
