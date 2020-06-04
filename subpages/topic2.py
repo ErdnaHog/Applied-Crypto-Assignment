@@ -4,9 +4,10 @@ from subpages.topic2_pages.mono_alphabet_cipher import Mono_alphabet_cipher
 from subpages.topic2_pages.rail_fence_cipher import Rail_fence_cipher
 from subpages.topic2_pages.vernam_cipher import Vernam_cipher
 from subpages.topic2_pages.simple_columnar_transposition import Simple_columnar_transposition
+from subpages.topic2_pages.diffie_hellman import Diffie_hellman
 
 
-class Topic2(Shift_cipher, Mono_alphabet_cipher, Rail_fence_cipher, Vernam_cipher, Simple_columnar_transposition):
+class Topic2(Shift_cipher, Mono_alphabet_cipher, Rail_fence_cipher, Vernam_cipher, Simple_columnar_transposition, Diffie_hellman):
     def clear_inputs(key, plaintext, ciphertext):
         key.delete(0, 100)
         plaintext.delete("1.0", "end")
