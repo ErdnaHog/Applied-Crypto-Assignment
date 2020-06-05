@@ -10,3 +10,6 @@ def clear_screen(root):
     for item in _list:
         item.grid_forget()
 
+def get_Topic1():
+    from subpages.topic1 import Topic1
+    return Topic1

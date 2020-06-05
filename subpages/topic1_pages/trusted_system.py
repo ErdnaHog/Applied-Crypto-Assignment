@@ -1,11 +1,12 @@
 from main import mainframe, font_family, main_colour, button_colour, h1_font, h2_font, h3_font, box_width
 from tkinter import Label, Text, Button, Message, Frame, StringVar, Entry, Tk
-from subpages import clear_screen
+from subpages import clear_screen, get_Topic1
 
 
 class Trusted_system:
     def trusted_system_page():
         clear_screen(mainframe)
+        Topic1 = get_Topic1()
     # ? Title
         label = Label(
             mainframe,
@@ -41,11 +42,13 @@ class Trusted_system:
             button_frame,
             text="Previous Content",
             font=h3_font,
-            bg=button_colour
+            bg=button_colour,
+            command=Topic1.need_for_security_page
         ).grid(row=0, column=0, padx=10)
         Button(
             button_frame,
             text="Next Content",
             font=h3_font,
-            bg=button_colour
+            bg=button_colour,
+            command=Topic1.security_model_page
         ).grid(row=0, column=1, padx=10)
