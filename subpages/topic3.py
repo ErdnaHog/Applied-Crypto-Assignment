@@ -305,6 +305,8 @@ class Topic3:
     # ? Clear Plaintext Error
         plaintext_input_error.config(text="")
     # ?
+    # ? Clear Cipher Mode Error
+        cipher_mode_error.config(text="")
         if valid:
             with open(Key_file, "rb") as file:
                 key = file.read()

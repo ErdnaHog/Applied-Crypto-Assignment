@@ -72,10 +72,14 @@ class Vernam_cipher:
         Button(
             button_frame,
             text="Encrypt",
+            font=(font_family, 12),
+            background=button_colour,
             command=lambda: Vernam_cipher.encrypt_data()).grid(row=0, column=0, padx=10, pady=10)
         Button(
             button_frame,
             text="Decrypt",
+            font=(font_family, 12),
+            background=button_colour,
             command=lambda: Vernam_cipher.decrypt_data()).grid(row=0, column=1, padx=10, pady=10)
     # ?
     # ? Error Frame
